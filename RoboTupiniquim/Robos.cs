@@ -2,6 +2,10 @@
 {
     internal class Robos
     {
+        public static string inicialRobo1 = "", inicialRobo2 = "";
+        public static int posicaoX1 = default, posicaoX2 = default;
+        public static int posicaoY1 = default, posicaoY2 = default;
+        public static char auxDirecao2 = ' ', auxPosicaoX2 = ' ', auxPosicaoY2 = ' ', auxDirecao1 = ' ', auxPosicaoX1 = ' ', auxPosicaoY1 = ' ';
         public static void PosicionarRobo1()
         {
             do
@@ -11,38 +15,38 @@
                 Program.Cabecalho();
 
                 Console.Write("Informe a posição inicial e  do robô 1 (Exemplo.:1 3 N): ");
-                Program.inicialRobo1 = Console.ReadLine()!.ToUpper().Trim();
+                inicialRobo1 = Console.ReadLine()!.ToUpper().Trim();
 
-                Program.auxPosicaoY1 = Program.inicialRobo1[2];
-                Program.auxPosicaoX1 = Program.inicialRobo1[0];
-                Program.Direcao1 = Program.inicialRobo1[4];
-                Program.auxDirecao1 = Program.inicialRobo1[4];
-                if (Program.inicialRobo1[1] != ' ' || Program.inicialRobo1[3] != ' ')
+                auxPosicaoY1 = inicialRobo1[2];
+                auxPosicaoX1 = inicialRobo1[0];
+                Cardeais.Direcao1 = inicialRobo1[4];
+                auxDirecao1 = inicialRobo1[4];
+                if (inicialRobo1[1] != ' ' || inicialRobo1[3] != ' ')
                 {
                     Console.WriteLine("Apenas espaços para separar os valores (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (!int.TryParse(Program.auxPosicaoX1.ToString(), out Program.posicaoX1) || !int.TryParse(Program.auxPosicaoY1.ToString(), out Program.posicaoY1))
+                else if (!int.TryParse(auxPosicaoX1.ToString(), out posicaoX1) || !int.TryParse(auxPosicaoY1.ToString(), out posicaoY1))
                 {
                     Console.WriteLine("Número inválido, tente novamente (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (Program.Direcao1 != 'N' && Program.Direcao1 != 'S' && Program.Direcao1 != 'L' && Program.Direcao1 != 'O')
+                else if (Cardeais.Direcao1 != 'N' && Cardeais.Direcao1 != 'S' && Cardeais.Direcao1 != 'L' && Cardeais.Direcao1 != 'O')
                 {
                     Console.Write("O último valor deve ser uma letra indicando pontos cardeais (N - Norte, L - Leste, S - Sul, O - Oeste)");
                     Console.Write("\n Aperte ENTER para continuar");
                     Console.ReadLine();
                     continue;
                 }
-                else if (Program.posicaoX1 < 0 || Program.posicaoY1 < 0)
+                else if (posicaoX1 < 0 || posicaoY1 < 0)
                 {
                     Console.Write("Por favor, não use números negativos (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (Program.posicaoX1 > Convert.ToInt32(Program.coordenadaMaxX) || Program.posicaoY1 > Convert.ToInt32(Program.coordenadaMaxY))
+                else if (posicaoX1 > Convert.ToInt32(Grid.coordenadaMaxX) || posicaoY1 > Convert.ToInt32(Grid.coordenadaMaxY))
                 {
                     Console.Write("Os números informados são maiores que o valor do grid (Aperte ENTER para continuar)");
                     Console.ReadLine();
@@ -60,44 +64,44 @@
                 Program.Cabecalho();
 
                 Console.Write("Informe a posição inicial e  do robô 2 (Exemplo.:1 3 N): ");
-                Program.inicialRobo2 = Console.ReadLine()!.ToUpper().Trim();
+                inicialRobo2 = Console.ReadLine()!.ToUpper().Trim();
 
-                Program.auxPosicaoY2 = Program.inicialRobo2[2];
-                Program.auxPosicaoX2 = Program.inicialRobo2[0];
-                Program.Direcao2 = Program.inicialRobo2[4];
-                Program.auxDirecao2 = Program.inicialRobo2[4];
+                auxPosicaoY2 = inicialRobo2[2];
+                auxPosicaoX2 = inicialRobo2[0];
+                Cardeais.Direcao2 = inicialRobo2[4];
+                auxDirecao2 = inicialRobo2[4];
 
-                if (Program.inicialRobo2[1] != ' ' || Program.inicialRobo2[3] != ' ')
+                if (inicialRobo2[1] != ' ' || inicialRobo2[3] != ' ')
                 {
                     Console.WriteLine("Apenas espaços para separar os valores (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (!int.TryParse(Program.auxPosicaoX2.ToString(), out Program.posicaoX2) || !int.TryParse(Program.auxPosicaoY2.ToString(), out Program.posicaoY2))
+                else if (!int.TryParse(auxPosicaoX2.ToString(), out posicaoX2) || !int.TryParse(auxPosicaoY2.ToString(), out posicaoY2))
                 {
                     Console.WriteLine("Número inválido, tente novamente (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (Program.posicaoX2 < 0 || Program.posicaoY2 < 0)
+                else if (posicaoX2 < 0 || posicaoY2 < 0)
                 {
                     Console.Write("Por favor, não use números negativos (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (Program.posicaoX2 > Convert.ToInt32(Program.coordenadaMaxX) || Program.posicaoY2 > Convert.ToInt32(Program.coordenadaMaxY))
+                else if (posicaoX2 > Convert.ToInt32(Grid.coordenadaMaxX) || posicaoY2 > Convert.ToInt32(Grid.coordenadaMaxY))
                 {
                     Console.Write("Os números informados são maiores que o valor do grid (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (Program.posicaoX2 == Program.posicaoX1 && Program.posicaoY2 == Program.posicaoY1)
+                else if (posicaoX2 == posicaoX1 && posicaoY2 == posicaoY1)
                 {
                     Console.Write("Os dois robôs não podem ocupar o mesmo espaço. (Aperte ENTER para continuar)");
                     Console.ReadLine();
                     continue;
                 }
-                else if (Program.Direcao2 != 'N' && Program.Direcao2 != 'S' && Program.Direcao2 != 'L' && Program.Direcao2 != 'O')
+                else if (Cardeais.Direcao2 != 'N' && Cardeais.Direcao2 != 'S' && Cardeais.Direcao2 != 'L' && Cardeais.Direcao2 != 'O')
                 {
                     Console.Write("O último valor deve ser uma letra indicando pontos cardeais (N - Norte, L - Leste, S - Sul, O - Oeste)");
                     Console.Write("\n Aperte ENTER para continuar");
@@ -115,7 +119,7 @@
                 Program.Cabecalho();
 
                 Console.Write("Movimentação do Robô 1 \n");
-                Console.Write($"Posição atual: X:{Program.posicaoX1} Y:{Program.posicaoY1} Direção:{Program.Direcao1}\n");
+                Console.Write($"Posição atual: X:{posicaoX1} Y:{posicaoY1} Direção:{Cardeais.Direcao1}\n");
                 Console.WriteLine("----------------------------------------------------------");
 
                 Console.Write("Quantas ações irão ser executadas ?: ");
@@ -135,77 +139,77 @@
                 {
                     if (movimentacoes[i] == 'E')
                     {
-                        if (Program.N1 == true)
+                        if (Cardeais.N1 == true)
                         {
-                            Program.N1 = false;
-                            Program.O1 = true;
-                            Program.Direcao1 = 'O';
+                            Cardeais.N1 = false;
+                            Cardeais.O1 = true;
+                            Cardeais.Direcao1 = 'O';
                         }
-                        else if (Program.O1 == true)
+                        else if (Cardeais.O1 == true)
                         {
-                            Program.O1 = false;
-                            Program.S1 = true;
-                            Program.Direcao1 = 'S';
+                            Cardeais.O1 = false;
+                            Cardeais.S1 = true;
+                            Cardeais.Direcao1 = 'S';
                         }
-                        else if (Program.S1 == true)
+                        else if (Cardeais.S1 == true)
                         {
-                            Program.S1 = false;
-                            Program.L1 = true;
-                            Program.Direcao1 = 'L';
+                            Cardeais.S1 = false;
+                            Cardeais.L1 = true;
+                            Cardeais.Direcao1 = 'L';
                         }
-                        else if (Program.L1 == true)
+                        else if (Cardeais.L1 == true)
                         {
-                            Program.L1 = false;
-                            Program.N1 = true;
-                            Program.Direcao1 = 'N';
+                            Cardeais.L1 = false;
+                            Cardeais.N1 = true;
+                            Cardeais.Direcao1 = 'N';
                         }
                     }
                     if (movimentacoes[i] == 'D')
                     {
-                        if (Program.N1 == true)
+                        if (Cardeais.N1 == true)
                         {
-                            Program.N1 = false;
-                            Program.L1 = true;
-                            Program.Direcao1 = 'L';
+                            Cardeais.N1 = false;
+                            Cardeais.L1 = true;
+                            Cardeais.Direcao1 = 'L';
                         }
-                        else if (Program.L1 == true)
+                        else if (Cardeais.L1 == true)
                         {
-                            Program.L1 = false;
-                            Program.S1 = true;
-                            Program.Direcao1 = 'S';
+                            Cardeais.L1 = false;
+                            Cardeais.S1 = true;
+                            Cardeais.Direcao1 = 'S';
                         }
-                        else if (Program.S1 == true)
+                        else if (Cardeais.S1 == true)
                         {
-                            Program.S1 = false;
-                            Program.O1 = true;
-                            Program.Direcao1 = 'O';
+                            Cardeais.S1 = false;
+                            Cardeais.O1 = true;
+                            Cardeais.Direcao1 = 'O';
                         }
-                        else if (Program.O1 == true)
+                        else if (Cardeais.O1 == true)
                         {
-                            Program.O1 = false;
-                            Program.N1 = true;
-                            Program.Direcao1 = 'N';
+                            Cardeais.O1 = false;
+                            Cardeais.N1 = true;
+                            Cardeais.Direcao1 = 'N';
                         }
                     }
                     if (movimentacoes[i] == 'M')
                     {
-                        if (Program.N1 == true)
-                            Program.posicaoY1 = Program.posicaoY1 + 1;
-                        if (Program.L1 == true)
-                            Program.posicaoX1 = Program.posicaoX1 + 1;
-                        if (Program.S1 == true)
-                            Program.posicaoY1 = Program.posicaoY1 - 1;
-                        if (Program.O1 == true)
-                            Program.posicaoX1 = Program.posicaoX1 - 1;
+                        if (Cardeais.N1 == true)
+                            posicaoY1 = posicaoY1 + 1;
+                        if (Cardeais.L1 == true)
+                            posicaoX1 = posicaoX1 + 1;
+                        if (Cardeais.S1 == true)
+                            posicaoY1 = posicaoY1 - 1;
+                        if (Cardeais.O1 == true)
+                            posicaoX1 = posicaoX1 - 1;
                     }
 
                 }
-                if (Program.posicaoX1 < 0 || Program.posicaoY1 < 0 || Program.posicaoX1 > Convert.ToInt32(Program.coordenadaMaxX) || Program.posicaoY1 > Convert.ToInt32(Program.coordenadaMaxY))
+                if (posicaoX1 < 0 || posicaoY1 < 0 || posicaoX1 > Convert.ToInt32(Grid.coordenadaMaxX) || posicaoY1 > Convert.ToInt32(Grid.coordenadaMaxY))
                 {
                     Console.Write("Robô irá sair do grid desse jeito. (Pressione ENTER para tentar novamente)");
-                    Program.posicaoX1 = Convert.ToInt32(Program.auxPosicaoX1.ToString());
-                    Program.posicaoY1 = Convert.ToInt32(Program.auxPosicaoY1.ToString());
-                    Program.Direcao1 = Program.auxDirecao1;
+                    posicaoX1 = Convert.ToInt32(auxPosicaoX1.ToString());
+                    posicaoY1 = Convert.ToInt32(auxPosicaoY1.ToString());
+                    Cardeais.Direcao1 = auxDirecao1;
                     Program.prosseguir = false;
                     Console.ReadLine();
                     continue;
@@ -221,7 +225,7 @@
                 Program.Cabecalho();
 
                 Console.Write("Movimentação do Robô 2 \n");
-                Console.Write($"Posição atual: X:{Program.posicaoX2} Y:{Program.posicaoY2} Direção:{Program.Direcao2}\n");
+                Console.Write($"Posição atual: X:{posicaoX2} Y:{posicaoY2} Direção:{Cardeais.Direcao2}\n");
                 Console.WriteLine("----------------------------------------------------------");
 
                 Console.Write("Quantas ações irão ser executadas ?: ");
@@ -241,87 +245,87 @@
                 {
                     if (movimentacoes[i] == 'E')
                     {
-                        if (Program.N2 == true)
+                        if (Cardeais.N2 == true)
                         {
-                            Program.N2 = false;
-                            Program.O2 = true;
-                            Program.Direcao2 = 'O';
+                            Cardeais.N2 = false;
+                            Cardeais.O2 = true;
+                            Cardeais.Direcao2 = 'O';
                         }
-                        else if (Program.O2 == true)
+                        else if (Cardeais.O2 == true)
                         {
-                            Program.O2 = false;
-                            Program.S2 = true;
-                            Program.Direcao2 = 'S';
+                            Cardeais.O2 = false;
+                            Cardeais.S2 = true;
+                            Cardeais.Direcao2 = 'S';
                         }
-                        else if (Program.S2 == true)
+                        else if (Cardeais.S2 == true)
                         {
-                            Program.S2 = false;
-                            Program.L2 = true;
-                            Program.Direcao2 = 'L';
+                            Cardeais.S2 = false;
+                            Cardeais.L2 = true;
+                            Cardeais.Direcao2 = 'L';
                         }
-                        else if (Program.L2 == true)
+                        else if (Cardeais.L2 == true)
                         {
-                            Program.L2 = false;
-                            Program.N2 = true;
-                            Program.Direcao2 = 'N';
+                            Cardeais.L2 = false;
+                            Cardeais.N2 = true;
+                            Cardeais.Direcao2 = 'N';
                         }
                     }
                     if (movimentacoes[i] == 'D')
                     {
-                        if (Program.N2 == true)
+                        if (Cardeais.N2 == true)
                         {
-                            Program.N2 = false;
-                            Program.L2 = true;
-                            Program.Direcao2 = 'L';
+                            Cardeais.N2 = false;
+                            Cardeais.L2 = true;
+                            Cardeais.Direcao2 = 'L';
                         }
-                        else if (Program.L2 == true)
+                        else if (Cardeais.L2 == true)
                         {
-                            Program.L2 = false;
-                            Program.S2 = true;
-                            Program.Direcao2 = 'S';
+                            Cardeais.L2 = false;
+                            Cardeais.S2 = true;
+                            Cardeais.Direcao2 = 'S';
                         }
-                        else if (Program.S2 == true)
+                        else if (Cardeais.S2 == true)
                         {
-                            Program.S2 = false;
-                            Program.O2 = true;
-                            Program.Direcao2 = 'O';
+                            Cardeais.S2 = false;
+                            Cardeais.O2 = true;
+                            Cardeais.Direcao2 = 'O';
                         }
-                        else if (Program.O2 == true)
+                        else if (Cardeais.O2 == true)
                         {
-                            Program.O2 = false;
-                            Program.N2 = true;
-                            Program.Direcao2 = 'N';
+                            Cardeais.O2 = false;
+                            Cardeais.N2 = true;
+                            Cardeais.Direcao2 = 'N';
                         }
                     }
                     if (movimentacoes[i] == 'M')
                     {
-                        if (Program.N2 == true)
-                            Program.posicaoY2 = Program.posicaoY2 + 1;
-                        if (Program.L2 == true)
-                            Program.posicaoX2 = Program.posicaoX2 + 1;
-                        if (Program.S2 == true)
-                            Program.posicaoY2 = Program.posicaoY2 - 1;
-                        if (Program.O2 == true)
-                            Program.posicaoX2 = Program.posicaoX2 - 1;
+                        if (Cardeais.N2 == true)
+                            posicaoY2 = posicaoY2 + 1;
+                        if (Cardeais.L2 == true)
+                            posicaoX2 = posicaoX2 + 1;
+                        if (Cardeais.S2 == true)
+                            posicaoY2 = posicaoY2 - 1;
+                        if (Cardeais.O2 == true)
+                            posicaoX2 = posicaoX2 - 1;
                     }
                 }
-                if (Program.posicaoX2 < 0 || Program.posicaoY2 < 0 || Program.posicaoX2 > Convert.ToInt32(Program.coordenadaMaxX) || Program.posicaoY2 > Convert.ToInt32(Program.coordenadaMaxY))
+                if (posicaoX2 < 0 || posicaoY2 < 0 || posicaoX2 > Convert.ToInt32(Grid.coordenadaMaxX) || posicaoY2 > Convert.ToInt32(Grid.coordenadaMaxY))
                 {
                     Console.Write("Robô irá sair do grid desse jeito. (Pressione ENTER para tentar novamente)");
-                    Program.posicaoX2 = Convert.ToInt32(Program.auxPosicaoX2.ToString());
-                    Program.posicaoY2 = Convert.ToInt32(Program.auxPosicaoY2.ToString());
-                    Program.Direcao2 = Program.auxDirecao2;
+                    posicaoX2 = Convert.ToInt32(auxPosicaoX2.ToString());
+                    posicaoY2 = Convert.ToInt32(auxPosicaoY2.ToString());
+                    Cardeais.Direcao2 = auxDirecao2;
                     Program.prosseguir = false;
                     Console.ReadLine();
                     continue;
                 }
-                if (Program.posicaoX2 == Program.posicaoX1 && Program.posicaoY2 == Program.posicaoY1)
+                if (posicaoX2 == posicaoX1 && posicaoY2 == posicaoY1)
                 {
                     Console.WriteLine("Assim os robôs vão bater po!!!!!");
                     Console.Write("Pressione ENTER para continuar");
-                    Program.posicaoX2 = Convert.ToInt32(Program.auxPosicaoX2.ToString());
-                    Program.posicaoY2 = Convert.ToInt32(Program.auxPosicaoY2.ToString());
-                    Program.Direcao2 = Program.auxDirecao2;
+                    posicaoX2 = Convert.ToInt32(auxPosicaoX2.ToString());
+                    posicaoY2 = Convert.ToInt32(auxPosicaoY2.ToString());
+                    Cardeais.Direcao2 = auxDirecao2;
                     Program.prosseguir = false;
                     Console.ReadLine();
                     continue;

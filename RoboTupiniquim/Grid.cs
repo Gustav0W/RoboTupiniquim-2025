@@ -2,6 +2,8 @@
 {
     internal class Grid
     {
+        public static string coordenadaMaxX = default!;
+        public static string coordenadaMaxY = default!;
         public static void GerarGrid()
         {
             do
@@ -19,15 +21,15 @@
                 }
                 else
                 {
-                    Program.coordenadaMaxX = grid[0].ToString();
-                    Program.coordenadaMaxY = grid[2].ToString();
-                    if (!int.TryParse(Program.coordenadaMaxX, out _) || !int.TryParse(Program.coordenadaMaxY, out _))
+                    coordenadaMaxX = grid[0].ToString();
+                    coordenadaMaxY = grid[2].ToString();
+                    if (!int.TryParse(coordenadaMaxX, out _) || !int.TryParse(coordenadaMaxY, out _))
                     {
                         Console.WriteLine("Número inválido, tente novamente (Aperte ENTER para continuar)");
                         Console.ReadLine();
                         continue;
                     }
-                    if (Program.coordenadaMaxX == "0" || Program.coordenadaMaxY == "0")
+                    if (coordenadaMaxX == "0" || coordenadaMaxY == "0")
                     {
                         Console.WriteLine("Número nulo, coloque valores acima de 0 (Aperte ENTER para continuar)");
                         Console.ReadLine();

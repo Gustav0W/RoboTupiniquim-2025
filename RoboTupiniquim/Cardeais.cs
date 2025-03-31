@@ -2,68 +2,70 @@
 {
     internal class Cardeais
     {
+        public static bool N1 = false, L1 = false, S1 = false, O1 = false, N2 = false, L2 = false, S2 = false, O2 = false;
+        public static char Direcao1, Direcao2;
         public static void GerarCardeaisDoRobo1()
         {
-            if (Program.Direcao1 == 'N')
+            if (Direcao1 == 'N')
             {
-                Program.N1 = true;
-                Program.S1 = false;
-                Program.L1 = false;
-                Program.O1 = false;
+                N1 = true;
+                S1 = false;
+                L1 = false;
+                O1 = false;
 
             }
-            else if (Program.Direcao1 == 'S')
+            else if (Direcao1 == 'S')
             {
-                Program.N1 = false;
-                Program.S1 = true;
-                Program.L1 = false;
-                Program.O1 = false;
+                N1 = false;
+                S1 = true;
+                L1 = false;
+                O1 = false;
 
             }
-            else if (Program.Direcao1 == 'L')
+            else if (Direcao1 == 'L')
             {
-                Program.N1 = false;
-                Program.S1 = false;
-                Program.L1 = true;
-                Program.O1 = false;
+                N1 = false;
+                S1 = false;
+                L1 = true;
+                O1 = false;
             }
-            else if (Program.Direcao1 == 'O')
+            else if (Direcao1 == 'O')
             {
-                Program.N1 = false;
-                Program.S1 = false;
-                Program.L1 = false;
-                Program.O1 = true;
+                N1 = false;
+                S1 = false;
+                L1 = false;
+                O1 = true;
             }
         }
         public static void GerarCardeaisDoRobo2()
         {
-            if (Program.Direcao2 == 'N')
+            if (Direcao2 == 'N')
             {
-                Program.N2 = true;
-                Program.S2 = false;
-                Program.L2 = false;
-                Program.O2 = false;
+                N2 = true;
+                S2 = false;
+                L2 = false;
+                O2 = false;
             }
-            else if (Program.Direcao2 == 'S')
+            else if (Direcao2 == 'S')
             {
-                Program.N2 = false;
-                Program.S2 = true;
-                Program.L2 = false;
-                Program.O2 = false;
+                N2 = false;
+                S2 = true;
+                L2 = false;
+                O2 = false;
             }
-            else if (Program.Direcao2 == 'L')
+            else if (Direcao2 == 'L')
             {
-                Program.N2 = false;
-                Program.S2 = false;
-                Program.L2 = true;
-                Program.O2 = false;
+                N2 = false;
+                S2 = false;
+                L2 = true;
+                O2 = false;
             }
-            else if (Program.Direcao2 == 'O')
+            else if (Direcao2 == 'O')
             {
-                Program.N2 = false;
-                Program.S2 = false;
-                Program.L2 = false;
-                Program.O2 = true;
+                N2 = false;
+                S2 = false;
+                L2 = false;
+                O2 = true;
             }
         }
     }
